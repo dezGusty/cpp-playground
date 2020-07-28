@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 	// - E.g. Open CMD in bin/Debug or bin/Release
 	//		  02_odd_even.exe 1		=> Output: ODD
 	//		  02_odd_even.exe 2		=> Output: EVEN
-	//		  02_odd_even.exe 		=> Output: No program arguments found
+	//		  02_odd_even.exe 		=> Output: No program arguments found.
+	//		  02_odd_even.exe ABC   => Undefined output (do whatever).
 	//		
 
 	// Make sure there are some program arguments available.
@@ -40,11 +41,14 @@ int main(int argc, char *argv[])
 
 	// Get the first argument
 	std::string argumentAsString = argv[1];
+	const char* argumentAsCharArray = argumentAsString.c_str();
 
-	//int number = argv[1];
-	//int number = atoi(argumentValues[1]);
-	std::cout << argumentAsString << std::endl;
-	//int number = std::stoi(
+	//number = argv[1]; // No
+	//should use atoi?
+	// or std::stoi?
+
+	std::cout << argumentAsString << std::endl; // i think this should be removed
+
 	// --------------- stop
 
 	printOddOrEven(number);
