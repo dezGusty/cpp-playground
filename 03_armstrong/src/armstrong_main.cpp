@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	// - Execute the binary and pass a parameter to it?
 	// - E.g. Open CMD in bin/Debug or bin/Release
 	//		  03_armstrong.exe 1		=> Output: Armstrong
-	//		  03_armstrong.exe 2		=> Output: Armstrong
+	//		  03_armstrong.exe 2		=> Output: NOT Armstrong
 	//		  03_armstrong.exe 			=> Output: No program arguments found.
 	//		  03_armstrong.exe ABC		=> Undefined output (do whatever).
 	//		  03_armstrong.exe 153		=> Output: Armstrong
