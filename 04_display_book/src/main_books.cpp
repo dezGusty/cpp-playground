@@ -34,7 +34,6 @@ struct Book
 	void addAuthor(Author author)
 	{
 		// TODO: add an author to the container authors array.
-		authors[numAuthors] = author;
 		numAuthors++;
 	}
 
