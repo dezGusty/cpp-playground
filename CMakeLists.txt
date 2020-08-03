@@ -18,6 +18,7 @@ ENDIF ()
 
 IF (BUILD_SAMPLES_6_10)
     ADD_SUBDIRECTORY(06_read_file)
+    ADD_SUBDIRECTORY(07_matrix_to_console)
     ADD_SUBDIRECTORY(08_lib_ini_read_book)
     ADD_SUBDIRECTORY(10_oop_func_args_book)
 ENDIF ()

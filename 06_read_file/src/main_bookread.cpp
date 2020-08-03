@@ -34,13 +34,14 @@ public:
 std::vector<Book> readBooksFromTextFile(const std::string& file_name)
 {
 	std::vector<Book> results;
-	// TODO: BEGIN read the file ----------------------
+	// TODO: BEGIN read the file -------------------------------------
+
 
 	// E.g. Book myBook;
 	//		...
 	//		results.emplace_back(myBook);
 
-	// TODO: END read file and add to results vector --
+	// TODO: END read file and add to results vector ------------------
 	return results;
 }
 
