@@ -6,6 +6,7 @@
 
 // C++ system headers
 #include <iostream>
+#include <vector>
 
 // other libs
 
@@ -14,17 +15,72 @@
 
 void shipBookToAddressA(Book book, const std::string& address)
 {
-	std::cout << "Shipping book [" << book.toString() << "] to address: " << address << std::endl;
+	Book::prettyPrintForShipping(book.toString(), address);
 }
 
 void shipBookToAddressB(const Book& book, const std::string& address)
 {
-	std::cout << "Shipping book [" << book.toString() << "] to address: " << address << std::endl;
+	book.prettyPrintForShipping(book.toString(), address);
+	book.prettyPrintForShipping("bonus-card", address);
 }
 
-void shipBookToAddressC(Book* book, const std::string& address)
+void shipBookToAddressC(const Book* book, const std::string& address)
 {
-	std::cout << "Shipping book [" << book->toString() << "] to address: " << address << std::endl;
+	book->prettyPrintForShipping(book->toString(), address);
+}
+
+void tempFunction()
+{
+	std::vector<Book*> books;
+
+	books.push_back(new Book("Fahrenheit 451", "Ray Bradbury", 1001));
+	{
+		books.push_back(new Book("Catch-22", "Joseph Heller", 1003));
+		if (true)
+		{
+			books.push_back(new Book("The Psychopath Test ", "Jon Ronson", 1004));
+		}
+	}
+
+	for (Book* temp : books)
+	{
+		delete temp;
+	}
+}
+
+void dynamicArrays()
+{
+	Book** books =  new Book*[3];
+	books[0] = new Book("Fahrenheit 451", "Ray Bradbury", 1001);
+	{
+		books[1] = new Book("Catch-22", "Joseph Heller", 1003);
+		if (true)
+		{
+			books[2] = new Book("The Psychopath Test ", "Jon Ronson", 1004);
+		}
+	}
+
+	for (int i = 0; i < 3; ++i)
+	{
+		delete books[i];
+	}
+
+	delete[] books;
+}
+
+void dynamicArrays2()
+{
+	Book* books = new Book[3];
+	books[0] = Book("Fahrenheit 451", "Ray Bradbury", 1001);
+	{
+		books[1] = Book("Catch-22", "Joseph Heller", 1003);
+		if (true)
+		{
+			books[2] = Book("The Psychopath Test ", "Jon Ronson", 1004);
+		}
+	}
+
+	delete[] books;
 }
 
 int main(int argc, char* argv[])

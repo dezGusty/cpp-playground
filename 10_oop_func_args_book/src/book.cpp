@@ -1,4 +1,4 @@
-﻿// Includes
+// Includes
 
 // Own header
 #include "book.h"
@@ -75,8 +75,15 @@ Book::Book(Book&& rhs) noexcept :
 	name(std::move(rhs.name)),							// explicit move of a member of class type
 	serial_number(std::exchange(rhs.serial_number, 0))	// explicit move of a member of non-class type
 {
-	std::cout << "[move] MOVEd insides of book [" << this->toString() << "] to a different object. Old book is now blank." << std::endl;
-	std::cout << "[move] Counter:" << ++object_counter << std::endl;
+	std::cout << "[move] MOVEd insides of book [" << this->toString() << "] to a different object. Old book is now blank. Counter:" << ++object_counter << std::endl;
+}
+
+Book& Book::operator=(const Book& rhs)
+{
+	this->name = rhs.name;
+	this->authors = rhs.authors;
+	this->serial_number = rhs.serial_number;
+	return *this;
 }
 
 std::string Book::toString() const
@@ -101,4 +108,9 @@ void Book::setAuthors(const std::string& authors)
 void Book::setName(const std::string& name)
 {
 	this->name = name;
+}
+
+void Book::prettyPrintForShipping(const std::string& content, const std::string& address)
+{
+	std::cout << "Shipping book [" << content << "] to address: " << address << std::endl;
 }
