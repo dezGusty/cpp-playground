@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 set(PROJECT_NAME "02_odd_even")
 # set project name
 project(${PROJECT_NAME})
-message("building ${PROJECT_NAME} ...")
+MESSAGE(STATUS "building ${PROJECT_NAME} ...")
 
 # specify the folder(s) where the compiler should look for include files
 include_directories(include) #in our case the 'include' folder present in the root folder

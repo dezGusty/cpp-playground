@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 set(PROJECT_NAME "04_display_book")
 # set project name
 project(${PROJECT_NAME})
-message("building ${PROJECT_NAME} ...")
+MESSAGE(STATUS "building ${PROJECT_NAME} ...")
 ADD_DEFINITIONS(-DUNICODE -D_UNICODE)
 
 # specify the folder(s) where the compiler should look for include files

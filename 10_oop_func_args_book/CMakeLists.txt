@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 set(PROJECT_NAME "10_oop_func_args_book")
 # set project name
 project(${PROJECT_NAME})
-message("building ${PROJECT_NAME} ...")
+MESSAGE(STATUS "building ${PROJECT_NAME} ...")
 ADD_DEFINITIONS(-DUNICODE -D_UNICODE)
 
 set(CMAKE_CXX_STANDARD 11)
