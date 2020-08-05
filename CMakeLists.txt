@@ -28,3 +28,8 @@ IF (BUILD_SAMPLES_10_14)
     ADD_SUBDIRECTORY(10_oop_func_args_book)
     ADD_SUBDIRECTORY(11_oop_book_auth)
 ENDIF ()
+
+IF (BUILD_SAMPLES_15_19)
+    ADD_SUBDIRECTORY(15_game_of_life)
+ENDIF ()
+
