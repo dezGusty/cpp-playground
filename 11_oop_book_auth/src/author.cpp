@@ -1,9 +1,15 @@
 #include "author.h"
 
-size_t Author::obj_counter = 0;
+int Author::obj_counter = 0;
 
 Author::Author(const std::string& name)
 	: name(name)
+{
+	obj_counter++;
+}
+
+Author::Author(const Author& rhs):
+	name(rhs.name)
 {
 	obj_counter++;
 }
