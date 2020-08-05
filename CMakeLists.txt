@@ -7,6 +7,7 @@ cmake_minimum_required(VERSION 3.0)
 OPTION(BUILD_SAMPLES_1_5 "Build the first set of samples" ON)
 OPTION(BUILD_SAMPLES_6_9 "Build the second set of samples" ON)
 OPTION(BUILD_SAMPLES_10_14 "Build the third set of samples" ON)
+OPTION(BUILD_SAMPLES_15_19 "Build the fourth set of samples" ON)
 OPTION(BUILD_SAMPLES_EXTERNAL_DEPS "Build the external lib samples" OFF)
 
 PROJECT(cpp-playground)
