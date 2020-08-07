@@ -7,7 +7,7 @@ SfmlApp::SfmlApp(
 	std::pair<unsigned int, unsigned int> window_size,
 	std::pair<unsigned int, unsigned int> cell_size
 )
-	: window({ window_size.first, window_size.second }, "My window")
+	: window_({ window_size.first, window_size.second }, "My window")
 	, cell_size_(cell_size)
 {
 }
@@ -18,7 +18,7 @@ SfmlApp::~SfmlApp()
 
 const sf::RenderWindow& SfmlApp::getWindow() const
 {
-	return this->window;
+	return this->window_;
 }
 
 std::string getMessageForActiveStatus(bool active)
@@ -55,8 +55,8 @@ void SfmlApp::init()
 	//this->window.setSize(sf::Vector2u(1200, 600));
 
 	// Initialize the vertices
-	size_t max_width = static_cast<size_t>(window.getView().getSize().x);
-	size_t max_height = static_cast<size_t>(window.getView().getSize().y);
+	size_t max_width = static_cast<size_t>(window_.getView().getSize().x);
+	size_t max_height = static_cast<size_t>(window_.getView().getSize().y);
 
 	world_size_.first = max_height / cell_size_.first - 1;
 	world_size_.second = max_height / cell_size_.second - 1;
@@ -78,16 +78,16 @@ void SfmlApp::run()
 	unsigned duration_in_millis_between_updates = 1000;
 
 	// run the program as long as the window is open
-	while (window.isOpen())
+	while (window_.isOpen())
 	{
 		// check all the window's events that were triggered since the last iteration of the loop
 		sf::Event event;
-		while (window.pollEvent(event))
+		while (window_.pollEvent(event))
 		{
 			// "close requested" event: we close the window
 			if (event.type == sf::Event::Closed)
 			{
-				window.close();
+				window_.close();
 			}
 
 			// quick close via the ESC key.
@@ -95,7 +95,7 @@ void SfmlApp::run()
 			{
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				{
-					window.close();
+					window_.close();
 					return;
 				}
 			}
@@ -118,12 +118,12 @@ void SfmlApp::run()
 		}
 
 		// clear the window with black color
-		window.clear(sf::Color::Black);
+		window_.clear(sf::Color::Black);
 
 		render();
 
 		// end the current frame
-		window.display();
+		window_.display();
 
 		// don't consume too many cpu cycles
 		std::this_thread::sleep_for(std::chrono::duration<int, std::milli>(10));
@@ -137,14 +137,14 @@ void SfmlApp::run()
 void SfmlApp::setCellColor(unsigned cell_x, unsigned cell_y, sf::Color color)
 {
 	auto index = (cell_y * this->world_size_.first + cell_x) * 4;
-	if (index >= cell_vertices.size())
+	if (index >= cell_vertices_.size())
 	{
 		return;
 	}
 
 	for (int i = 0; i < 4; i++)
 	{
-		cell_vertices[index + i].color = color;
+		cell_vertices_[index + i].color = color;
 	}
 }
 
@@ -168,10 +168,10 @@ void SfmlApp::addVertexQuad(unsigned cell_x, unsigned cell_y, unsigned width, un
 	bottomLeft.color = dead_cell_color_;
 	bottomRight.color = dead_cell_color_;
 
-	cell_vertices.push_back(topLeft);
-	cell_vertices.push_back(bottomLeft);
-	cell_vertices.push_back(bottomRight);
-	cell_vertices.push_back(topRight);
+	cell_vertices_.push_back(topLeft);
+	cell_vertices_.push_back(bottomLeft);
+	cell_vertices_.push_back(bottomRight);
+	cell_vertices_.push_back(topRight);
 }
 
 #if 0
@@ -219,10 +219,10 @@ void slow_render(sf::RenderWindow& window, unsigned rectWidth, unsigned rectHeig
 void SfmlApp::render()
 {
 	// draw everything here...
-	window.draw(cell_vertices.data(), cell_vertices.size(), sf::Quads);
+	window_.draw(cell_vertices_.data(), cell_vertices_.size(), sf::Quads);
 
 	// Add any GUI info.
-	window.draw(gui_text_);
+	window_.draw(gui_text_);
 }
 
 void SfmlApp::updateWorld()

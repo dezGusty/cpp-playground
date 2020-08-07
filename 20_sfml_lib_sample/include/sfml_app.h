@@ -10,8 +10,8 @@
 class SfmlApp
 {
 private:
-	sf::RenderWindow window;
-	std::vector<sf::Vertex> cell_vertices;
+	sf::RenderWindow window_;
+	std::vector<sf::Vertex> cell_vertices_;
 	std::pair<unsigned int, unsigned int> cell_size_;
 	std::pair<unsigned int, unsigned int> world_size_;
 
