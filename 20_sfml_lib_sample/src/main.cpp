@@ -16,14 +16,19 @@ void hide_console()
 
 int main()
 {
-	hide_console();
+	//hide_console();
 
 	// TODO: maybe load from a configuration file? INI file?
-	std::pair<unsigned int, unsigned int> preferred_size;
-	preferred_size.first = 1200;
-	preferred_size.second = 600;
+	std::pair<unsigned int, unsigned int> preferred_window_size;
+	preferred_window_size.first = 1200;
+	preferred_window_size.second = 600;
 
-	SfmlApp app(preferred_size);
+	std::pair<unsigned int, unsigned int> preferred_cell_size;
+	preferred_cell_size.first = 5;
+	preferred_cell_size.second = 5;
+
+
+	SfmlApp app(preferred_window_size, preferred_cell_size);
 	app.init();
 	app.run();
 }
