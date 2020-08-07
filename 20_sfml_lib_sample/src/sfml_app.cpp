@@ -41,7 +41,7 @@ void SfmlApp::init()
 		gui_text_.setFont(font_);
 		gui_text_.setString("Press <SPACE> to toggle the simulation");
 		gui_text_.move(10, 2);
-		gui_text_.setCharacterSize(16);
+		gui_text_.setCharacterSize(24);
 		gui_text_.setOutlineColor(sf::Color::White);
 	}
 	else
@@ -58,7 +58,7 @@ void SfmlApp::init()
 	size_t max_width = static_cast<size_t>(window_.getView().getSize().x);
 	size_t max_height = static_cast<size_t>(window_.getView().getSize().y);
 
-	world_size_.first = max_height / cell_size_.first - 1;
+	world_size_.first = max_width / cell_size_.first - 1;
 	world_size_.second = max_height / cell_size_.second - 1;
 
 	for (size_t cell_y = 0; cell_y < max_height / cell_size_.first - 1; cell_y++)
