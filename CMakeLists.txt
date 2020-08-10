@@ -37,3 +37,6 @@ ENDIF ()
 IF (BUILD_SAMPLES_EXTERNAL_DEPS)
     ADD_SUBDIRECTORY(20_sfml_lib_sample)
 ENDIF()
+
+ADD_SUBDIRECTORY(21_sample_feline)
+ADD_SUBDIRECTORY(22_sample_kitty_exe)
