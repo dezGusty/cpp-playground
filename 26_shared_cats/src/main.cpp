@@ -8,7 +8,7 @@ Feline* createFelinePointer(std::string feline_type, std::string name)
 {
 	if (feline_type == "lion")
 	{
-		return new Lion("Magunda");
+		return new Lion(name);
 	}
 	
 
@@ -24,9 +24,8 @@ auto  main() -> int
 	// for each ...
 	//
 
-	felines.emplace_back(createFelinePointer("lion", "jerry"));
-	felines.emplace_back(createFelinePointer("kitty", "hello"));
-	felines.emplace_back(createFelinePointer("feline", "undefined"));
+	felines.emplace_back(createFelinePointer("lion", "Magunda"));
+	//felines.emplace_back(createFelinePointer("kitty", "hello"));
 
 	// print to screen
 	for (Feline* feline : felines)
