@@ -38,13 +38,13 @@ auto  main() -> int
 	felines.emplace_back(createFelinePointer("feline", "undefined"));
 
 	// print to screen
-	for each(Feline* feline in felines)
+	for (Feline* feline : felines)
 	{
 		feline->make_sound();
 	}
 
 	// clean-up
-	for each(Feline* feline in felines)
+	for (Feline* feline : felines)
 	{
 		delete feline;
 	}

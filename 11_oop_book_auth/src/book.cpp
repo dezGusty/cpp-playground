@@ -20,7 +20,7 @@ Book::Book(const Book& rhs)
 	: title(rhs.title)
 {
 	this->reviewer = new Author(*rhs.reviewer);
-	for each (auto author in rhs.authors)
+	for (auto author : rhs.authors)
 	{
 		this->addAuthor(new Author(*author));
 	}
