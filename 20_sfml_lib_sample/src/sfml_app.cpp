@@ -58,9 +58,11 @@ void SfmlApp::init()
 	size_t max_width = static_cast<size_t>(window_.getView().getSize().x);
 	size_t max_height = static_cast<size_t>(window_.getView().getSize().y);
 
+	// Store the world size for later use.
 	world_size_.first = max_width / cell_size_.first - 1;
 	world_size_.second = max_height / cell_size_.second - 1;
 
+	// Initialize the world map with vertices.
 	for (size_t cell_y = 0; cell_y < max_height / cell_size_.first - 1; cell_y++)
 	{
 		for (size_t cell_x = 0; cell_x < max_width / cell_size_.second - 1; cell_x++)
