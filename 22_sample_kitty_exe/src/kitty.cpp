@@ -11,18 +11,28 @@ Kitty::~Kitty()
 {
 
 }
-//
-//std::ostream& operator<<(std::ostream& os, const Kitty& kitty)
+
+std::string Kitty::get_description()
+{
+	return "kitty";
+}
+
+std::ostream& operator<<(std::ostream& os, const Kitty& kitty)
+{
+	os << kitty.name_ << " specimen of " << kitty.species_;
+	return os;
+}
+
+//Kitty::operator std::string() const
 //{
-//	os << kitty.name_ << " specimen of " << kitty.species_;
-//	return os;
+//	std::string result(this->name_);
+//	result.append(" (");
+//	result.append(this->species_);
+//	result.append(")");
+//	return result;
 //}
 
-Kitty::operator std::string() const
-{
-	std::string result(this->name_);
-	result.append(" (");
-	result.append(this->species_);
-	result.append(")");
-	return result;
-}
+//Kitty::operator int() const
+//{
+//	return this->name_.length();
+//}

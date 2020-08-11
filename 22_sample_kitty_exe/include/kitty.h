@@ -7,8 +7,8 @@
 #include "abstract_feline.h"
 
 class Kitty : 
-	//public AbstractFeline,
-	public Feline
+	public AbstractFeline
+	//public Feline
 {
 private:
 	std::string name_;
@@ -17,8 +17,9 @@ public:
 	Kitty(const std::string& name = "", const std::string& species="");
 	virtual ~Kitty();
 
-	//friend std::ostream& operator<<(std::ostream& os, const Kitty& rhs);
+	friend std::ostream& operator<<(std::ostream& os, const Kitty& rhs);
 
-	operator std::string() const;
-	//virtual std::string get_description() = 0;
+	//operator std::string() const;
+	//operator int() const;
+	virtual std::string get_description();
 };

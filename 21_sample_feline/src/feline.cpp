@@ -12,5 +12,5 @@ Feline::~Feline()
 
 std::string Feline::get_description()
 {
-	return "";
+	return "(feline)";
 }
