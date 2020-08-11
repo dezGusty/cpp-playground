@@ -1,42 +1,53 @@
 #include <iostream>
+#include <vector>
 
-#include <abstract_feline.h>
-#include <feline.h>
-#include <kitty.h>
+#include "abstract_feline.h"
+#include "feline.h"
+#include "lion.h"
+#include "kitty.h"
 
-AbstractFeline* createFelinePointer()
+Feline* createFelinePointer(std::string feline_type, std::string name)
 {
-	return new Kitty();
-}
+	if (feline_type == "lion")
+	{
+		return new Lion();
+	}
+	else if (feline_type == "kitty")
+	{
+		return new Kitty(name);
+	}
+	else if (feline_type == "feline")
+	{
+		return new Feline();
+	}
 
-void useStaticObjects()
-{
-	// try to create a feline
-	Feline feline1;
-	AbstractFeline* feline2 = createFelinePointer();
-	std::cout << feline1.get_description() << std::endl;
-	std::cout << feline2->get_description() << std::endl;
-	delete feline2;
-}
-
-void tryCreateKitty()
-{
-	Kitty kitty("Puffy", "Norwegian Forest Cat");
-	//std::cout << "A wild cat appears! \"" << kitty << "\"" << std::endl;
-	/*std::cout << "A wild cat appears! \""
-		<< static_cast<std::string>(kitty) << "\""<< std::endl;
-*/
-//std::string text =  kitty;
-//int kitty_value = kitty;
-//double kitty_float_value = kitty;
-	std::cout << kitty << std::endl;
+	return nullptr;
 }
 
 auto  main() -> int
 {
 	std::cout << "-=== Sample kitty ===-" << std::endl;
 
-	useStaticObjects();
-	//tryCreateKitty();
+	std::vector<Feline*> felines;
+	// read from file
+	// for each ...
+	//
+
+	felines.emplace_back(createFelinePointer("lion", "jerry"));
+	felines.emplace_back(createFelinePointer("kitty", "hello"));
+	felines.emplace_back(createFelinePointer("feline", "undefined"));
+
+	// print to screen
+	for each(Feline* feline in felines)
+	{
+		feline->make_sound();
+	}
+
+	// clean-up
+	for each(Feline* feline in felines)
+	{
+		delete feline;
+	}
+
 	return 0;
 }

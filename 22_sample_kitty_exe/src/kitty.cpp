@@ -23,6 +23,12 @@ std::ostream& operator<<(std::ostream& os, const Kitty& kitty)
 	return os;
 }
 
+void Kitty::make_sound()
+{
+	std::cout << "Miau" << std::endl;
+}
+
+
 //Kitty::operator std::string() const
 //{
 //	std::string result(this->name_);
