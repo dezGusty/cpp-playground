@@ -16,19 +16,14 @@ SfmlApp::~SfmlApp()
 {
 }
 
-const sf::RenderWindow& SfmlApp::getWindow() const
-{
-	return this->window_;
-}
-
 std::string getMessageForActiveStatus(bool active)
 {
 	if (active)
 	{
-		return "Simulation is ACTIVE. Press <SPACE> to toggle the simulation.";
+		return "Simulation is ACTIVE. Press <SPACE> to toggle the simulation. Press <ESC> to exit.";
 	}
-	
-	return "Simulation is PAUSED. Press <SPACE> to toggle the simulation.";
+
+	return "Simulation is PAUSED. Press <SPACE> to toggle the simulation. Press <ESC> to exit.";
 }
 
 void SfmlApp::init()
@@ -39,7 +34,7 @@ void SfmlApp::init()
 	if (font_.loadFromFile("../../data/OpenSans-Regular.ttf"))
 	{
 		gui_text_.setFont(font_);
-		gui_text_.setString("Press <SPACE> to toggle the simulation");
+		gui_text_.setString(getMessageForActiveStatus(true));
 		gui_text_.move(10, 2);
 		gui_text_.setCharacterSize(24);
 		gui_text_.setOutlineColor(sf::Color::White);
@@ -111,6 +106,22 @@ void SfmlApp::run()
 					gui_text_.setString(getMessageForActiveStatus(simulation_active));
 				}
 			}
+			if (event.type == sf::Event::MouseButtonReleased)
+			{
+				if (event.mouseButton.button == sf::Mouse::Button::Left)
+				{
+					size_t view_width = static_cast<size_t>(window_.getView().getSize().x);
+					size_t view_height = static_cast<size_t>(window_.getView().getSize().y);
+					size_t win_width = static_cast<size_t>(window_.getSize().x);
+					size_t win_height = static_cast<size_t>(window_.getSize().y);
+
+					unsigned clicked_cell_x = event.mouseButton.x * view_width / (cell_size_.first * win_width);
+					unsigned clicked_cell_y = event.mouseButton.y * view_height / (cell_size_.second * win_height);
+
+					// TODO: maybe update a world matrix?
+					setCellColor(clicked_cell_x, clicked_cell_y, living_cell_color_);
+				}
+			}
 		}
 
 		if (time_elapsed_since_update > duration_in_millis_between_updates)
@@ -157,13 +168,13 @@ void SfmlApp::addVertexQuad(unsigned cell_x, unsigned cell_y, unsigned width, un
 	sf::Vertex bottomLeft;
 	sf::Vertex bottomRight;
 
-	float pixelX = static_cast<float>(cell_x * width);
-	float pixelY = static_cast<float>(cell_y * height);
+	float pixel_x = static_cast<float>(cell_x * width);
+	float pixel_y = static_cast<float>(cell_y * height);
 
-	topLeft.position = { pixelX,               pixelY };
-	topRight.position = { pixelX + width,    pixelY };
-	bottomLeft.position = { pixelX,               pixelY + height };
-	bottomRight.position = { pixelX + width,    pixelY + height };
+	topLeft.position = { pixel_x,			 pixel_y };
+	topRight.position = { pixel_x + width,   pixel_y };
+	bottomLeft.position = { pixel_x,           pixel_y + height };
+	bottomRight.position = { pixel_x + width,   pixel_y + height };
 
 	topLeft.color = dead_cell_color_;
 	topRight.color = dead_cell_color_;
@@ -175,48 +186,6 @@ void SfmlApp::addVertexQuad(unsigned cell_x, unsigned cell_y, unsigned width, un
 	cell_vertices_.push_back(bottomRight);
 	cell_vertices_.push_back(topRight);
 }
-
-#if 0
-// Note: this is an early sample of trying to render using shapes. It is much slower than simply
-// updating vertices.
-void slow_render(sf::RenderWindow& window, unsigned rectWidth, unsigned rectHeight)
-{
-	// draw everything here...
-	sf::RectangleShape rect(sf::Vector2f((float)rectWidth, (float)rectHeight));
-
-	size_t max_width = static_cast<size_t>(window.getView().getSize().x);
-	size_t max_height = static_cast<size_t>(window.getView().getSize().y);
-
-	for (size_t cell_y = 0; cell_y < max_height / rectHeight - 1; cell_y++)
-	{
-		for (size_t cell_x = 0; cell_x < max_width / rectWidth - 1; cell_x++)
-		{
-			rect.setFillColor(sf::Color(80, 200, 40));
-
-			float pos_x = cell_x * rectWidth;
-			float pos_y = cell_y * rectHeight;
-			if (cell_x % 2 == 0)
-			{
-				if (cell_y % 2 == 0)
-				{
-					rect.setFillColor(sf::Color(140, 100, 30));
-				}
-				else
-				{
-					rect.setFillColor(sf::Color(180, 120, 40));
-				}
-			}
-			else if (cell_y % 2 == 0)
-			{
-				rect.setFillColor(sf::Color(60, 160, 20));
-			}
-
-			rect.setPosition(sf::Vector2f(pos_x, pos_y));
-			window.draw(rect);
-}
-	}
-}
-#endif
 
 void SfmlApp::render()
 {

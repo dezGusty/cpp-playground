@@ -16,7 +16,7 @@ void hide_console()
 
 int main()
 {
-	//hide_console();
+	hide_console();
 
 	// TODO: maybe load from a configuration file? INI file?
 	std::pair<unsigned int, unsigned int> preferred_window_size;

@@ -33,7 +33,6 @@ public:
 
 	~SfmlApp();
 
-	const sf::RenderWindow& getWindow() const;
 	void init();
 	void run();
 	void render();
