@@ -15,22 +15,26 @@
 #include <vector>
 
 // 4. This library's headers, in alphabetical order.
-#include "cat_factory.h"
+#include "feline_factory.h"
 #include "domestic_cat.h"
 
 // 5. Other libraries' headers, in alphabetical order.
 #include "lion.h"
 #include "SimpleIni.h"
 
-Feline* createFelinePointer(const std::string& feline_type, const std::string& name)
+Feline* createFelinePointer(const std::string& feline_type, const std::string& name, const std::string& option)
 {
 	if (feline_type == "lion")
 	{
-		return new Lion(name);
+		return Lion::create(name, option);
 	}
 	else if (feline_type == "domestic_cat")
 	{
-		return new DomesticCat(name, "tramp");
+		return DomesticCat::create(name, option);
+	}
+	else if (feline_type == "lynx")
+	{
+		// return new Lynx(...);
 	}
 
 
@@ -65,13 +69,23 @@ std::vector<Feline*> loadFromIniFile(const std::string& fileName)
 		std::string name_key_name = key_name.str();
 		std::string feline_name(ini.GetValue("felines", name_key_name.c_str(), ""));
 
+		key_name.str("");
+		key_name << "feline";
+		key_name << i;
+		key_name << ".option";
+		std::string option_key_name = key_name.str();
+		std::string feline_option(ini.GetValue("felines", option_key_name.c_str(), ""));
+
 		// Create a cat with a given type and name.
 		Feline* feline_to_create = nullptr;
 		std::cout << "*name: " << feline_name << std::endl;
 		std::cout << "*type: " << feline_type << std::endl;
+		std::cout << "*option: " << feline_option << std::endl;
 		
+		//feline_to_create = createFelinePointer(feline_type, feline_name, feline_option);
+
 		// TODO: use factory?
-		feline_to_create = CatFactory::create(feline_type, feline_name);
+		feline_to_create = FelineFactory::create(feline_type, feline_name, feline_option);
 
 		if (nullptr != feline_to_create)
 		{

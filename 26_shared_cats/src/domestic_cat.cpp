@@ -18,10 +18,10 @@
 // 5. Other libraries' headers, in alphabetical order.
 // none
 
-DomesticCat::DomesticCat(const std::string& name, const std::string& species)
+DomesticCat::DomesticCat(const std::string& name, const std::string& subspecies)
 	: Feline("domestic_cat")
 	, name_(name)
-	, species_(species)
+	, subspecies_(subspecies)
 {
 
 }
@@ -38,7 +38,7 @@ std::string DomesticCat::get_description()
 
 std::ostream& operator<<(std::ostream& os, const DomesticCat& kitty)
 {
-	os << kitty.name_ << " specimen of " << kitty.species_;
+	os << kitty.name_ << " specimen of " << kitty.subspecies_;
 	return os;
 }
 
@@ -47,17 +47,7 @@ void DomesticCat::speak()
 	std::cout << this->name_ << " says: Miau!" << std::endl;
 }
 
-
-//Kitty::operator std::string() const
-//{
-//	std::string result(this->name_);
-//	result.append(" (");
-//	result.append(this->species_);
-//	result.append(")");
-//	return result;
-//}
-
-//Kitty::operator int() const
-//{
-//	return this->name_.length();
-//}
+Feline* DomesticCat::create(const std::string& name, const std::string& subspecies)
+{
+	return new DomesticCat(name, subspecies);
+}

@@ -19,6 +19,7 @@
 // none
 
 Feline::Feline(const std::string& species)
+	: species_(species)
 {
 }
 

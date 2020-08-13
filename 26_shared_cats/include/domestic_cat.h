@@ -10,9 +10,9 @@ class DomesticCat :
 {
 private:
 	std::string name_;
-	std::string species_;
+	std::string subspecies_;
 public:
-	DomesticCat(const std::string& name = "", const std::string& species="");
+	DomesticCat(const std::string& name = "", const std::string& subspecies="");
 	virtual ~DomesticCat();
 
 	friend std::ostream& operator<<(std::ostream& os, const DomesticCat& rhs);
@@ -22,4 +22,6 @@ public:
 	virtual std::string get_description();
 
 	virtual void speak();
+
+	static Feline* create(const std::string& name, const std::string& subspecies);
 };

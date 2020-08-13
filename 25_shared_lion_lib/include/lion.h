@@ -24,8 +24,9 @@ class LION_IMPEXP Lion : public Feline
 private:
 	std::string name_;
 	std::string subspecies_;
+
 public:
-	Lion(const std::string& name);
+	Lion(const std::string& name, const std::string& subspecies);
 	virtual ~Lion();
 	virtual void speak();
 
@@ -38,5 +39,5 @@ public:
 		subspecies_ = subspecies;
 	}
 
-	static Feline* create(const std::string& name);
+	static Feline* create(const std::string& name, const std::string& subspecies);
 };

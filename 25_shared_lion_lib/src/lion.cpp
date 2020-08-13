@@ -18,18 +18,19 @@
 // 5. Other libraries' headers, in alphabetical order.
 // none
 
-Lion::Lion(const std::string & name)
+Lion::Lion(const std::string & name, const std::string& subspecies)
 	: Feline("lion")
 	, name_(name)
+	, subspecies_(subspecies)
 {
 #ifdef CTOR_DTOR_MSG
 	std::cout << "Lion " << name_ << " created." << std::endl;
 #endif //CTOR_DTOR_MSG
 }
 
-Feline* Lion::create(const std::string & name)
+Feline* Lion::create(const std::string & name, const std::string& subspecies)
 {
-	return new Lion(name);
+	return new Lion(name, subspecies);
 }
 
 Lion::~Lion()
