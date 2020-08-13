@@ -13,13 +13,14 @@
 #include <string>
 
 // 4. This library's headers, in alphabetical order.
-#include "constants.h"
+// none
 
 // 5. Other libraries' headers, in alphabetical order.
 // none
 
 Lion::Lion(const std::string & name)
-	: name_(name)
+	: Feline("lion")
+	, name_(name)
 {
 #ifdef CTOR_DTOR_MSG
 	std::cout << "Lion " << name_ << " created." << std::endl;

@@ -19,14 +19,24 @@
 // 5. Other libraries' headers, in alphabetical order.
 // none
 
-class LION_IMPEXP Lion	: public Feline
+class LION_IMPEXP Lion : public Feline
 {
 private:
 	std::string name_;
+	std::string subspecies_;
 public:
 	Lion(const std::string& name);
 	virtual ~Lion();
 	virtual void speak();
+
+	virtual const std::string& get_subspecies() const
+	{
+		return subspecies_;
+	}
+	virtual void set_subspecies(const std::string& subspecies) 
+	{
+		subspecies_ = subspecies;
+	}
 
 	static Feline* create(const std::string& name);
 };

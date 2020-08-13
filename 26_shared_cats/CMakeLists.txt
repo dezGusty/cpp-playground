@@ -19,6 +19,7 @@ include_directories(
 	include #in our case the 'include' folder present in the root folder
 	../24_shared_feline_lib/include # Use this library
 	../25_shared_lion_lib/include # Use this library
+	../thirdparty/simpleini 
 )
 # or we can use file(GLOB ...) for wildcard additon (add any file ending with '.h')
 FILE(GLOB HEADER_FILES "include/*.h")

@@ -1,7 +1,8 @@
 #include "kitty.h"
 
 Kitty::Kitty(const std::string& name, const std::string& species)
-	: name_(name)
+	: Feline("kitty")
+	, name_(name)
 	, species_(species)
 {
 

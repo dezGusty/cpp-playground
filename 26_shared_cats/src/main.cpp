@@ -4,6 +4,9 @@
 #include "lion.h"
 #include "feline.h"
 
+#include "cat_factory.h"
+#include "feline_reader.h"
+
 Feline* createFelinePointer(std::string feline_type, std::string name)
 {
 	if (feline_type == "lion")
@@ -15,17 +18,37 @@ Feline* createFelinePointer(std::string feline_type, std::string name)
 	return nullptr;
 }
 
+void show_felines_in_collection(const std::vector<Feline*> &felines)
+{
+	for (Feline* feline : felines)
+	{
+		if (feline->get_species() == "lion")
+		{
+			// Can cast down
+			Lion* lion_ptr = (Lion*)feline;
+			if (lion_ptr)
+			{
+
+			}
+			lion_ptr->speak();
+			std::cout << "this lion is of the subspecies " << lion_ptr->get_subspecies() << std::endl;
+		}
+	}
+}
+
+
 auto  main() -> int
 {
 	std::cout << "-=== Shared cats ===-" << std::endl;
 
 	std::vector<Feline*> felines;
-	// read from file
-	// for each ...
-	//
 
 	felines.emplace_back(createFelinePointer("lion", "Magunda"));
 	//felines.emplace_back(createFelinePointer("kitty", "hello"));
+
+	CatFactory::initialize();
+
+	felines = loadFromIniFile("../../data/26_shared_cats.ini");
 
 	// print to screen
 	for (Feline* feline : felines)

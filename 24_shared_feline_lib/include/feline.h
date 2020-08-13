@@ -11,7 +11,7 @@
 // none
 
 // 3. C++ system headers, in alphabetical order.
-// none
+#include <string>
 
 // 4. This library's headers, in alphabetical order.
 // none
@@ -19,9 +19,20 @@
 // 5. Other libraries' headers, in alphabetical order.
 // none
 
- class FELINES_IMPEXP Feline
+class FELINES_IMPEXP Feline
 {
+private:
+	std::string species_;
 public:
-  virtual void speak() = 0;
-  virtual ~Feline();
+	Feline(const std::string& species);
+	virtual ~Feline();
+
+	// Actions for felines.
+	// Assume we live in a world where cats speak.
+	virtual void speak() = 0;
+
+	virtual const std::string& get_species() const
+	{
+		return species_;
+	}
 };
