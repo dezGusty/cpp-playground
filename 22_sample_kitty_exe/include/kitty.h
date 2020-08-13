@@ -5,17 +5,17 @@
 
 #include "feline.h"
 
-class Kitty : 
+class DomesticCat : 
 	public Feline
 {
 private:
 	std::string name_;
 	std::string species_;
 public:
-	Kitty(const std::string& name = "", const std::string& species="");
-	virtual ~Kitty();
+	DomesticCat(const std::string& name = "", const std::string& species="");
+	virtual ~DomesticCat();
 
-	friend std::ostream& operator<<(std::ostream& os, const Kitty& rhs);
+	friend std::ostream& operator<<(std::ostream& os, const DomesticCat& rhs);
 
 	//operator std::string() const;
 	//operator int() const;

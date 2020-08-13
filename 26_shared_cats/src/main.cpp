@@ -7,16 +7,7 @@
 #include "cat_factory.h"
 #include "feline_reader.h"
 
-Feline* createFelinePointer(std::string feline_type, std::string name)
-{
-	if (feline_type == "lion")
-	{
-		return new Lion(name);
-	}
-	
 
-	return nullptr;
-}
 
 void show_felines_in_collection(const std::vector<Feline*> &felines)
 {
@@ -44,11 +35,12 @@ auto  main() -> int
 	std::vector<Feline*> felines;
 
 	felines.emplace_back(createFelinePointer("lion", "Magunda"));
-	//felines.emplace_back(createFelinePointer("kitty", "hello"));
+	felines.emplace_back(createFelinePointer("kitty", "hello"));
 
-	CatFactory::initialize();
+	//CatFactory::initialize();
+	//felines = loadFromIniFile("../../data/26_shared_cats.ini");
 
-	felines = loadFromIniFile("../../data/26_shared_cats.ini");
+	std::cout << std::endl << "-=== Silence! The cats are speaking ===-" << std::endl << std::endl;
 
 	// print to screen
 	for (Feline* feline : felines)

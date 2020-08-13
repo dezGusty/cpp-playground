@@ -16,11 +16,26 @@
 
 // 4. This library's headers, in alphabetical order.
 #include "cat_factory.h"
+#include "domestic_cat.h"
 
 // 5. Other libraries' headers, in alphabetical order.
+#include "lion.h"
 #include "SimpleIni.h"
 
+Feline* createFelinePointer(const std::string& feline_type, const std::string& name)
+{
+	if (feline_type == "lion")
+	{
+		return new Lion(name);
+	}
+	else if (feline_type == "domestic_cat")
+	{
+		return new DomesticCat(name, "tramp");
+	}
 
+
+	return nullptr;
+}
 
 std::vector<Feline*> loadFromIniFile(const std::string& fileName)
 {
@@ -56,7 +71,7 @@ std::vector<Feline*> loadFromIniFile(const std::string& fileName)
 		std::cout << "*type: " << feline_type << std::endl;
 		
 		// TODO: use factory?
-		//felineToCreate = CatFactory::create(felineTypeStr, felineNameStr);
+		feline_to_create = CatFactory::create(feline_type, feline_name);
 
 		if (nullptr != feline_to_create)
 		{

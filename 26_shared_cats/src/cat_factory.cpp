@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "lion.h"
-#include "kitty.h"
+#include "domestic_cat.h"
 
 map<string, Feline* (*)(const string&)> CatFactory::registered_cats_;
 

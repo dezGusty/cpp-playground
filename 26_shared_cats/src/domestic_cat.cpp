@@ -1,7 +1,26 @@
-#include "kitty.h"
+//
+// Includes
+//
+
+// 1. Own header for C/C++ file.
+#include "domestic_cat.h"
+
+// 2. C system headers, in alphabetical order.
+// none
+
+// 3. C++ system headers, in alphabetical order.
+#include <iostream>
+#include <string>
+
+// 4. This library's headers, in alphabetical order.
+// none
+
+// 5. Other libraries' headers, in alphabetical order.
+// none
 
 DomesticCat::DomesticCat(const std::string& name, const std::string& species)
-	: name_(name)
+	: Feline("domestic_cat")
+	, name_(name)
 	, species_(species)
 {
 
@@ -23,7 +42,7 @@ std::ostream& operator<<(std::ostream& os, const DomesticCat& kitty)
 	return os;
 }
 
-void DomesticCat::make_sound()
+void DomesticCat::speak()
 {
 	std::cout << "Miau" << std::endl;
 }

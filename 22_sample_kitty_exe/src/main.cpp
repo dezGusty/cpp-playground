@@ -14,7 +14,7 @@ Feline* createFelinePointer(std::string feline_type, std::string name)
 	}
 	else if (feline_type == "kitty")
 	{
-		return new Kitty(name);
+		return new DomesticCat(name);
 	}
 	else if (feline_type == "feline")
 	{

@@ -27,7 +27,7 @@ FILE(GLOB SRC_FILES "src/*.cpp")
 
 # specify where to generate the executable file
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
-
+ 
 # specify that we are building an executable, and what sources to use 
 ADD_EXECUTABLE(${PROJECT_NAME} ${HEADER_FILES} ${SRC_FILES})
 
