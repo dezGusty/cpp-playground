@@ -44,7 +44,7 @@ std::ostream& operator<<(std::ostream& os, const DomesticCat& kitty)
 
 void DomesticCat::speak()
 {
-	std::cout << "Miau" << std::endl;
+	std::cout << this->name_ << " says: Miau!" << std::endl;
 }
 
 

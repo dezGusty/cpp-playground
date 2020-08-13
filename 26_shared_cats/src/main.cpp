@@ -35,7 +35,7 @@ auto  main() -> int
 	std::vector<Feline*> felines;
 
 	felines.emplace_back(createFelinePointer("lion", "Magunda"));
-	felines.emplace_back(createFelinePointer("kitty", "hello"));
+	felines.emplace_back(createFelinePointer("domestic_cat", "Tom"));
 
 	//CatFactory::initialize();
 	//felines = loadFromIniFile("../../data/26_shared_cats.ini");

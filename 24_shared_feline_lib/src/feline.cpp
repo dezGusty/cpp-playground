@@ -28,3 +28,8 @@ Feline::~Feline()
 	std::cout << "Feline (unknwon) destroyed." << std::endl;
 #endif //CTOR_DTOR_MSG
 }
+
+std::string getFelineLibVersion()
+{
+	return "1.0";
+}

@@ -36,3 +36,5 @@ public:
 		return species_;
 	}
 };
+
+std::string FELINES_IMPEXP getFelineLibVersion();
