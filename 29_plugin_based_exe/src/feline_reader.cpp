@@ -22,25 +22,6 @@
 #include "lion.h"
 #include "SimpleIni.h"
 
-Feline* createFelinePointer(const std::string& feline_type, const std::string& name, const std::string& option)
-{
-	if (feline_type == "lion")
-	{
-		return Lynx::create(name, option);
-	}
-	else if (feline_type == "domestic_cat")
-	{
-		return DomesticCat::create(name, option);
-	}
-	else if (feline_type == "lynx")
-	{
-		// return new Lynx(...);
-	}
-
-
-	return nullptr;
-}
-
 std::vector<Feline*> loadFromIniFile(const std::string& fileName)
 {
 	std::vector<Feline*> felines;
@@ -81,8 +62,6 @@ std::vector<Feline*> loadFromIniFile(const std::string& fileName)
 		std::cout << "*name: " << feline_name << std::endl;
 		std::cout << "*type: " << feline_type << std::endl;
 		std::cout << "*option: " << feline_option << std::endl;
-		
-		//feline_to_create = createFelinePointer(feline_type, feline_name, feline_option);
 
 		// TODO: use factory?
 		feline_to_create = FelineFactory::create(feline_type, feline_name, feline_option);

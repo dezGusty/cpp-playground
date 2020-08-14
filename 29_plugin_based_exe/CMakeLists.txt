@@ -56,4 +56,4 @@ ADD_EXECUTABLE(${PROJECT_NAME} ${HEADER_FILES} ${SRC_FILES})
 # Note the cats_lib project shall generate a "feline_lib.lib" and "feline_lib.dll" files.
 # That's the name of the dependency we need to use.
 # Using the same name (E.g. see cats_domestic_lib) makes it easier to handle.
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} 25_shared_lion_lib)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} 24_shared_feline_lib)
