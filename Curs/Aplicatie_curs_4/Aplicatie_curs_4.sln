@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.1433
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aplicatie_curs_4", "Aplicatie_curs_4.vcxproj", "{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20EEC547-1351-4B94-858B-A10234F1A438} = {20EEC547-1351-4B94-858B-A10234F1A438}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClassLib", "..\ClassLib\ClassLib.vcxproj", "{20EEC547-1351-4B94-858B-A10234F1A438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,12 +20,20 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Debug|x64.ActiveCfg = Debug|x64
 		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Debug|x64.Build.0 = Debug|x64
-		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Debug|x86.ActiveCfg = Debug|Win32
-		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Debug|x86.Build.0 = Debug|Win32
-		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x64.ActiveCfg = Release|x64
-		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x64.Build.0 = Release|x64
-		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x86.ActiveCfg = Release|Win32
-		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x86.Build.0 = Release|Win32
+		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Debug|x86.ActiveCfg = Debug|x64
+		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Debug|x86.Build.0 = Debug|x64
+		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x64.ActiveCfg = Debug|x64
+		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x64.Build.0 = Debug|x64
+		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x86.ActiveCfg = Debug|x64
+		{D9D073E9-52A2-452D-A9F2-E75DCE3FE3DF}.Release|x86.Build.0 = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Debug|x64.ActiveCfg = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Debug|x64.Build.0 = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Debug|x86.ActiveCfg = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Debug|x86.Build.0 = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Release|x64.ActiveCfg = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Release|x64.Build.0 = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Release|x86.ActiveCfg = Debug|x64
+		{20EEC547-1351-4B94-858B-A10234F1A438}.Release|x86.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
