@@ -11,12 +11,14 @@ Faceți fork la repository-ul de pe github: https://github.com/dezGusty/cpp-play
 Dați un build folosind CMake. Un lucru în plus față de ce am făcut la curs este că acum ar trebui să rezulte o soluție (sln) cu 2 proiecte.
 Recomandare: folosiți ca output un folder [build] chiar din directorul cu README.md
 Exemplu:
+```cmd
 ├───01_hello_world
 │ └───src
 ├───02_odd_even
 │ └───src
 ├───bin
 └───build
+```
 
 ## Pasul 3
 
